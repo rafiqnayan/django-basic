@@ -1,0 +1,19 @@
+<html>
+	<head><title>Register</title></head>
+	<body>
+		<h2>Register</h2>
+		{% if form.errors %}
+		<p style="color:red">Form contains error!</p>
+		{% endif %}
+
+		<form method="post" action="">
+			{% csrf_token %}
+			<table border="1">
+			{{form.as_table}}
+			<tr><td></td><td><input type="submit" value="Register" /></td></tr>
+			</table>
+			
+		</form>
+		<a href="/">Go back to home</a>
+	</body>
+</html>

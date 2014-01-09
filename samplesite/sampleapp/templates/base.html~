@@ -1,0 +1,19 @@
+<html>
+	<head><title>{% block page_title %}Page Title{% endblock %}</title></head>
+	<body>
+	{% block content %}{% endblock %}
+		<div>
+			<form action="/changebg" method="post">
+				{% csrf_token %}
+				<label>Select background color theme </label>
+				<select name="theme">
+					<option value="grey">Grey</option>
+					<option value="yellow">Yellow</option>
+					<option value="white">White</option>			
+				</select>
+				<input type="hidden" name="redirect" value="{{ request.get_full_path }}" />
+				<input type="submit" value="Set" />
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+	<head><title>Profile</title></head>
+	<body>
+		<h2>{{ user.username }}'s profile</h2>
+		<p>You are logged in!</p>
+		<p><a href="/logout/">Click here to logout</a></p>
+		{% else %}
+		<h2>Welcome!</h2>
+		<p>You are not logged in!</p>
+		<p><a href="/login/">Login</a> | <a href="/register">Register</a> | <a href="/about">About</a></p>
+		{% endif %}
+		
+		
+	</body>
+</html>

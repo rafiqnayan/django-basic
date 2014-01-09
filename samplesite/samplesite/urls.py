@@ -1,0 +1,27 @@
+from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
+from django.contrib import admin
+from sampleapp.views import RegisterView
+admin.autodiscover()
+
+urlpatterns = patterns('',
+
+    url(r'^admin/', include(admin.site.urls)),
+    
+    url(r'^$', 'sampleapp.views.home'), # example of function based views
+	
+	# using built in login and logout views
+	url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
+	url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'logged_out.html'}),
+	
+	# class based views
+	# url(r'^register/$', 'sampleapp.views.register'),
+	url(r'^register/$', RegisterView.as_view()),
+	
+	# how to serve html directly
+	url(r'^about/', TemplateView.as_view(template_name="about.html")),
+	url(r'^register/done$', TemplateView.as_view(template_name="registration_completed.html")),
+	
+	# demonstrates a view that is login protected
+	url(r'^profile/$', 'sampleapp.views.profile'), 
+)

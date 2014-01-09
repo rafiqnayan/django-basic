@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Good Bye!{% endblock %}
+
+{% block content %}
+
+	<h2>Bye!</h2>
+	<p>You are logged out!</p>
+	<p><a href="/login/">Login</a> | <a href="/">Home</a></p>
+{% endblock %}
+

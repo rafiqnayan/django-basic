@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Home{% endblock %}
+
+{% block content %}
+	
+	{% if user.is_authenticated %}
+	
+	<h2>Welcome! {{ user.username }}</h2>
+	<p>You are logged in!</p>
+	<p><a href="/profile/">Profile</a> | <a href="/about">About</a> | <a href="/logout/">Logout</a></p>
+	
+	{% else %}
+	
+	<h2>Welcome!</h2>
+	<p>You are not logged in!</p>
+	<p><a href="/login/">Login</a> | <a href="/register">Register</a> | <a href="/about">About</a></p>
+	
+	{% endif %}
+	<p style="color:blue">Your visit count: {{visit_count}}</p>
+	
+{% endblock %}
+
